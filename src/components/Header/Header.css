@@ -1,0 +1,54 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left__header{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.left__header>a>img{
+    height: 15px;
+    object-fit: contain;
+    
+}
+
+
+.search__bar{
+    display: flex;
+    border: 1px solid lightgray;
+    width: 50%;
+}
+
+.search__bar>input{
+    width: 100%;
+    border: none;
+    border-right: 1px solid lightgray;
+    padding: 0 4px 0 4px;
+}
+
+.search__bar>input:focus{
+    outline: none;
+}
+
+.search__bar>.MuiSvgIcon-root{
+    width: 30px;
+    color: gray;
+
+}
+
+
+
+.right__header{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.right__header>.MuiSvgIcon-root{
+    margin: 0 2px;
+}
+

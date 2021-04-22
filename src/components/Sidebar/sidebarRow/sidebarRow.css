@@ -1,0 +1,29 @@
+.sidebarRow{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    color: rgb(29, 27, 27);
+    cursor: pointer;
+}
+
+.selected__row{
+    background-color: lightgray;
+}
+
+.selected__row> .sidebarRow__icon{
+    color: red !important;
+    
+}
+
+.sidebarRow:hover{
+    background-color: lightgray;
+}
+
+.sidebarRow:hover>.sidebarRow__icon{
+    color: red !important;
+}
+
+.sidebarRow__icon{
+    margin-right: 20px;
+    color: rgb(116, 113, 113);
+}

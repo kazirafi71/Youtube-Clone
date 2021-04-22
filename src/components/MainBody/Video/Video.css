@@ -1,0 +1,8 @@
+.card__content__body{
+    display: flex;
+    
+}
+
+.card__avatar{
+    margin-right: 10px;
+}
