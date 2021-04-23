@@ -1,97 +1,69 @@
-import React from 'react';
-import './RecomendedVideo.css'
-import Video from './Video/Video';
+import React, { useEffect, useState } from "react";
+import "./RecomendedVideo.css";
+import Video from "./Video/Video";
+import SpinnerLoading from "../spinner/SpinnerLoading";
+import moment from "moment";
 
 const RecomendedVideo = () => {
-    return (
-        <div>
-            <h2>Recommended </h2>
-            <div className="recommended__videos">
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                <Video 
-                thumbPic='https://images.unsplash.com/photo-1613472443676-6737a7c4246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' 
-                title='Test title Test titleTest title'
-                avatarPic='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-                channelName='Hello world '
-                views='100k'
-                time='20pm'
-                />
-                
-            </div>
-            
-        </div>
-    );
+  const [videoData, setVideoData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [videoDuration, seVideoDuration] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BD&key=${process.env.REACT_APP_MY_API} &maxResults=40`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        console.log(data);
+        setVideoData(data.items);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+ 
+//   useEffect(() => {
+//     videoData && videoData.map((val) => {
+//         const s = moment.duration(val.contentDetails.duration).asSeconds();
+//        let  _duration = moment.utc(s * 1000).format("mm:ss");
+//         console.log(_duration);
+//       });
+//   }, [videoData]);
+
+  return (
+    <div className="recommended">
+      <h2>Recommended </h2>
+      <div className="recommended__videos">
+        {loading && (
+          <div className="m-auto mt-5">
+            <SpinnerLoading />
+          </div>
+        )}
+        {videoData &&
+          videoData.map((val) => {
+            // {
+            //   const s = moment
+            //     .duration(val.contentDetails.duration)
+            //     .asSeconds();
+            //   const _duration = moment.utc(s * 1000).format("mm:ss");
+            //  setVideoData(_duration);
+            // }
+            return (
+              <Video
+                key={val.id}
+                thumbPic={val.snippet.thumbnails.high.url}
+                title={val.snippet.localized.title}
+                avatarPic={val.snippet.thumbnails.medium.url}
+                channelName={val.snippet.channelTitle}
+                views={val.statistics.viewCount}
+                time={val.snippet.publishedAt}
+                durationVideo={val.contentDetails.duration}
+              />
+            );
+          })}
+      </div>
+    </div>
+  );
 };
 
 export default RecomendedVideo;

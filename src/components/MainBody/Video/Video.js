@@ -7,9 +7,14 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./Video.css";
 import { Avatar } from "@material-ui/core";
+import Visibility from "@material-ui/icons/Visibility";
+import moment from "moment";
+import numeral from "numeral";
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -21,25 +26,50 @@ const useStyles = makeStyles({
   },
 });
 
-const Video = ({ thumbPic, title, avatarPic, channelName, views, time }) => {
+const Video = ({
+  thumbPic,
+  title,
+  avatarPic,
+  channelName,
+  views,
+  time,
+  durationVideo,
+}) => {
   const classes = useStyles();
+  const s = moment.duration(durationVideo).asSeconds();
+  let _duration = moment.utc(s * 1000).format("mm:ss");
+  console.log(_duration);
   return (
-    <Card className={classes.root}>
+    <Card className="card__video">
       <CardActionArea>
-        <CardMedia className={classes.media} image={thumbPic} />
+        <CardMedia className="image__style">
+          <img className="img-fluid" src={thumbPic} alt="" />
+          <p className="content">{_duration}</p>
+        </CardMedia>
+
         <CardContent className="card__content__body">
           <div className="card__avatar">
             <Avatar src={avatarPic}></Avatar>
           </div>
           <div className="card__content">
-            <Typography className='' component='' style={{fontSize:"18px"}} variant="h6" >
-              {title}
+            <Typography
+              className="video__title"
+              component=""
+              style={{ fontSize: "14px" }}
+              variant="h6"
+            >
+              {title && title.split("").splice(0, 50)}...
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="">
+            <Typography
+              className="video__info"
+              variant="body2"
+              color="textSecondary"
+              component=""
+            >
               {channelName}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {views} views . {time}
+              <br></br>
+              <Visibility fontSize="small" /> {numeral(views).format("0.a")} views .
+              {moment(time).fromNow()}
             </Typography>
           </div>
         </CardContent>

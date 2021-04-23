@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import SearchIcon from "@material-ui/icons/Search";
@@ -8,20 +8,42 @@ import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { Avatar, IconButton } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const [sidebarToggle,setSideBarToggle]=useState(false)
   const [inputSearch,setInputSearch]=useState('')
+
+  
 
   const searchHandler=(e)=>{
     e.preventDefault()
     
 
   }
+
+  
+  const dispatch=useDispatch()
+
+  const sidebarHandler=()=>{
+    if(sidebarToggle){
+      setSideBarToggle(false)
+    }
+    else{
+      setSideBarToggle(true)
+    }
+    
+  }
+
+  useEffect(()=>{
+    dispatch({type:"SET__TOGGLE", payload: sidebarToggle})
+  },[sidebarToggle])
+  const user=JSON.parse(localStorage.getItem("user"))
   return (
     <div className="header">
       <div className="left__header">
-        <IconButton>
-        <DehazeIcon />
+        <IconButton onClick={sidebarHandler}>
+        <DehazeIcon  />
         </IconButton>
         <Link to='/'>
         <img
@@ -42,7 +64,7 @@ const Header = () => {
         <VideoCallIcon />
         <AppsIcon />
         <NotificationsIcon />
-        <Avatar  />
+        <Avatar src={user.url} />
       </div>
     </div>
   );

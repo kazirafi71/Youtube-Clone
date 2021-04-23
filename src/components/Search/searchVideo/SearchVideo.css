@@ -18,3 +18,13 @@
     font-size: 13px;
     color: gray;
 }
+
+
+@media screen and (max-width:600px) {
+    .searchVideo{
+       flex-direction: column;
+    }
+    .searchVideo__card__image>img{
+        width: 140px;
+    }
+}

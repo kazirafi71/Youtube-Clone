@@ -8,6 +8,7 @@ import HistoryIcon from '@material-ui/icons/History';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Sidebar = () => {
     return (
@@ -20,6 +21,7 @@ const Sidebar = () => {
             <SidebarRow Icon={VideoLibraryIcon} title="Your Videos"/>
             <SidebarRow Icon={WatchLaterIcon} title="Watch later"/>
             <SidebarRow Icon={ThumbUpAltIcon} title="Likes videos"/>
+            <SidebarRow logOut Icon={ExitToAppIcon} title="Logout"/>
             
         </div>
     );

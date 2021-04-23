@@ -6,3 +6,44 @@
 .card__avatar{
     margin-right: 10px;
 }
+
+.card__video{
+    width: 230px;
+    margin: 10px;
+}
+
+.video__image{
+    height: 140px;
+    object-fit: contain;
+}
+
+
+.image__style{
+    position: relative;
+    height: 140px ;
+    margin-bottom: 20px;
+    
+}
+.image__style .content{
+    position: absolute;
+    top: 90%;
+    color: white;
+    left: 80%;
+    background-color: rgba(0, 0, 0, 0.534);
+    padding: 5px;
+}
+
+
+@media screen and (max-width:600px) {
+    
+   
+    .video__title{
+        font-size: 12px !important;
+    }
+    .video__info{
+        font-size: 10px !important;
+    }
+    .video__image{
+        height: 100px;
+    }
+}
